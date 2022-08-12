@@ -91,10 +91,13 @@ namespace TFLUITestAutomation.Features
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Journey_Planner_01_Verify that a valid journey can be planned")]
-        public virtual void Journey_Planner_01_VerifyThatAValidJourneyCanBePlanned()
+        [NUnit.Framework.TestCaseAttribute("Dartford Rail Station", "London Victoria Rail Station", "Dartford Rail Station", "London Victoria Rail Station", null)]
+        [NUnit.Framework.TestCaseAttribute("University of Cumbria In London", "Manchester Square, London, UK", "University of Cumbria In London", "Manchester Square, London, UK", null)]
+        [NUnit.Framework.TestCaseAttribute("Brushfield Street, London E1 6AA, UK", "Dartford DA1 5UG, UK", "Brushfield Street, London E1 6AA, UK", "Dartford DA1 5UG, UK", null)]
+        public virtual void Journey_Planner_01_VerifyThatAValidJourneyCanBePlanned(string from, string to, string expectedFromAddress, string expectedToAddress, string[] exampleTags)
         {
-            string[] tagsOfScenario = ((string[])(null));
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Journey_Planner_01_Verify that a valid journey can be planned", null, ((string[])(null)));
+            string[] tagsOfScenario = exampleTags;
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Journey_Planner_01_Verify that a valid journey can be planned", null, exampleTags);
 #line 13
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -119,10 +122,10 @@ this.ScenarioInitialize(scenarioInfo);
 this.FeatureBackground();
 #line hidden
 #line 14
- testRunner.When("a user fills-in Dartford Rail Station in From field", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When(string.Format("a user fills-in {0} in From field", from), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 15
- testRunner.And("a user fills-in London Victoria Rail Station in To field", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And(string.Format("a user fills-in {0} in To field", to), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 16
  testRunner.And("a user clicks on Plan my journey button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -131,10 +134,10 @@ this.FeatureBackground();
  testRunner.Then("Journey results must be shown on the result page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 18
- testRunner.And("From address Dartford Rail Station must be present on the result page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And(string.Format("From address {0} must be present on the result page", expectedFromAddress), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 19
- testRunner.And("To address London Victoria Rail Station must be present on the result page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And(string.Format("To address {0} must be present on the result page", expectedToAddress), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 20
  testRunner.And("View details button must be present", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -151,7 +154,7 @@ this.FeatureBackground();
             string[] tagsOfScenario = ((string[])(null));
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Journey_Planner_02_Verify that the widget is unable to provide results when an in" +
                     "valid journey is planned", null, ((string[])(null)));
-#line 23
+#line 28
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -174,19 +177,19 @@ this.ScenarioInitialize(scenarioInfo);
 #line 7
 this.FeatureBackground();
 #line hidden
-#line 24
+#line 29
  testRunner.When("a user fills-in 1234qwerty in From field", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 25
+#line 30
  testRunner.And("a user fills-in 5678asdfghjk in To field", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 26
+#line 31
  testRunner.And("a user clicks on Plan my journey button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 27
+#line 32
  testRunner.Then("Journey results must be shown on the result page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 28
+#line 33
  testRunner.And("Sorry, we can\'t find a journey matching your criteria error message must be displ" +
                         "ayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
@@ -202,48 +205,6 @@ this.FeatureBackground();
             string[] tagsOfScenario = ((string[])(null));
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Journey_Planner_03_Verify that the widget is unable to plan a journey if no locat" +
                     "ions are entered into the widget", null, ((string[])(null)));
-#line 31
-this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                this.ScenarioStart();
-#line 7
-this.FeatureBackground();
-#line hidden
-#line 32
- testRunner.When("a user clicks on Plan my journey button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 33
- testRunner.Then("The From field is required., The To field is required. error messages must be sho" +
-                        "wn", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            }
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Journey_Planner_04_Verify change time link on the journey planner displays “Arriv" +
-            "ing” option and plan a journey based on arrival time")]
-        public virtual void Journey_Planner_04_VerifyChangeTimeLinkOnTheJourneyPlannerDisplaysArrivingOptionAndPlanAJourneyBasedOnArrivalTime()
-        {
-            string[] tagsOfScenario = ((string[])(null));
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Journey_Planner_04_Verify change time link on the journey planner displays “Arriv" +
-                    "ing” option and plan a journey based on arrival time", null, ((string[])(null)));
 #line 36
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -268,33 +229,75 @@ this.ScenarioInitialize(scenarioInfo);
 this.FeatureBackground();
 #line hidden
 #line 37
- testRunner.When("a user fills-in Dartford Rail Station in From field", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("a user clicks on Plan my journey button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 38
- testRunner.And("a user fills-in London Liverpool Street Rail Station in To field", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Then("The From field is required., The To field is required. error messages must be sho" +
+                        "wn", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 39
- testRunner.And("a user clicks on change time button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 40
- testRunner.And("a user clicks on Arriving radio button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Journey_Planner_04_Verify change time link on the journey planner displays “Arriv" +
+            "ing” option and plan a journey based on arrival time")]
+        public virtual void Journey_Planner_04_VerifyChangeTimeLinkOnTheJourneyPlannerDisplaysArrivingOptionAndPlanAJourneyBasedOnArrivalTime()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Journey_Planner_04_Verify change time link on the journey planner displays “Arriv" +
+                    "ing” option and plan a journey based on arrival time", null, ((string[])(null)));
 #line 41
- testRunner.And("a user selects Sat 20 Aug in the date dropdown field", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 7
+this.FeatureBackground();
 #line hidden
 #line 42
- testRunner.And("a user selects 08:00 in the time dropdown field", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.When("a user fills-in Dartford Rail Station in From field", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 43
- testRunner.And("a user clicks on Plan my journey button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("a user fills-in London Liverpool Street Rail Station in To field", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 44
- testRunner.Then("Journey results must be shown on the result page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.And("a user clicks on change time button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 45
- testRunner.And("Saturday 20th Aug, 08:00 must be displayed on the result page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("a user clicks on Arriving radio button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 46
+ testRunner.And("a user selects Sat 20 Aug in the date dropdown field", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 47
+ testRunner.And("a user selects 08:00 in the time dropdown field", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 48
+ testRunner.And("a user clicks on Plan my journey button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 49
+ testRunner.Then("Journey results must be shown on the result page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 50
+ testRunner.And("Saturday 20th Aug, 08:00 must be displayed on the result page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 51
  testRunner.And("View details button must be present", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -309,7 +312,7 @@ this.FeatureBackground();
             string[] tagsOfScenario = ((string[])(null));
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Journey_Planner_05_Verify that a journey can be amended by using the “Edit Journe" +
                     "y” button", null, ((string[])(null)));
-#line 49
+#line 54
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -332,35 +335,35 @@ this.ScenarioInitialize(scenarioInfo);
 #line 7
 this.FeatureBackground();
 #line hidden
-#line 50
+#line 55
  testRunner.When("a user fills-in Dartford Rail Station in From field", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 51
+#line 56
  testRunner.And("a user fills-in Duke Street Hill, London Bridge in To field", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 52
+#line 57
  testRunner.And("a user clicks on Plan my journey button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 53
+#line 58
  testRunner.Then("Journey results must be shown on the result page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 54
+#line 59
  testRunner.When("a user clicks on Edit Journey button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 55
+#line 60
  testRunner.And("user clicks on clear button to clear the To Field address", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 56
+#line 61
  testRunner.And("a user fills-in London Liverpool Street Rail Station in To field", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 57
+#line 62
  testRunner.And("a user clicks on Update Journey button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 58
+#line 63
  testRunner.Then("To address London Liverpool Street Rail Station must be present on the result pag" +
                         "e", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 59
+#line 64
  testRunner.And("View details button must be present", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -375,7 +378,7 @@ this.FeatureBackground();
             string[] tagsOfScenario = ((string[])(null));
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Journey_Planner_06_Verify that the “Recents” tab on the widget displays a list of" +
                     " recently planned journeys", null, ((string[])(null)));
-#line 62
+#line 67
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -398,28 +401,28 @@ this.ScenarioInitialize(scenarioInfo);
 #line 7
 this.FeatureBackground();
 #line hidden
-#line 63
+#line 68
  testRunner.When("a user clicks on Recent tab to turn it on", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 64
+#line 69
  testRunner.And("a user fills-in Dartford Rail Station in From field", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 65
+#line 70
  testRunner.And("a user fills-in Duke Street Hill, London Bridge in To field", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 66
+#line 71
  testRunner.And("a user clicks on Plan my journey button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 67
+#line 72
  testRunner.Then("Journey results must be shown on the result page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 68
+#line 73
  testRunner.When("a user clicks on Plan a Journey Tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 69
+#line 74
  testRunner.And("a user clicks on Recent tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 70
+#line 75
  testRunner.Then("the Recents tab must display at least one recently planned journey", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

@@ -10,14 +10,19 @@ Background:
 	And a user clicks on Plan a Journey Tab
 
 
-Scenario: Journey_Planner_01_Verify that a valid journey can be planned
-	When a user fills-in Dartford Rail Station in From field
-	And a user fills-in London Victoria Rail Station in To field
+Scenario Outline: Journey_Planner_01_Verify that a valid journey can be planned
+	When a user fills-in <From> in From field
+	And a user fills-in <To> in To field
 	And a user clicks on Plan my journey button
 	Then Journey results must be shown on the result page
-	And From address Dartford Rail Station must be present on the result page
-	And To address London Victoria Rail Station must be present on the result page
+	And From address <ExpectedFromAddress> must be present on the result page
+	And To address <ExpectedToAddress> must be present on the result page
 	And View details button must be present
+	Examples: 
+	| From                                 | To                            | ExpectedFromAddress                  | ExpectedToAddress             |
+	| Dartford Rail Station                | London Victoria Rail Station  | Dartford Rail Station                | London Victoria Rail Station  |
+	| University of Cumbria In London      | Manchester Square, London, UK | University of Cumbria In London      | Manchester Square, London, UK |
+	| Brushfield Street, London E1 6AA, UK | Dartford DA1 5UG, UK          | Brushfield Street, London E1 6AA, UK | Dartford DA1 5UG, UK          |
 
 
 Scenario: Journey_Planner_02_Verify that the widget is unable to provide results when an invalid journey is planned

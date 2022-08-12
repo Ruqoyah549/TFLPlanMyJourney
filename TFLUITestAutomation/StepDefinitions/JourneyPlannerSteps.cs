@@ -31,7 +31,7 @@ namespace TFLUITestAutomation.StepDefinitions
         {
             _journeyPlannerPage.FillInToLocationField(toLocation);
         }
-        
+
         [When(@"a user clicks on Plan my journey button")]
         public void WhenAUserClicksOnPlanMyJourneyButton()
         {
